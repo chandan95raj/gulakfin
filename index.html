@@ -1,0 +1,114 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://gulakfin.com/public/img/gulak-fin-favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Gulak Fin Shop - Your trusted source for MATM devices and BT printers. We offer high-quality payment solutions including MATM Feather Touch, MATM Pro, MATM Lite, and more." />
+    <meta name="keywords" content="MATM, MATM Pro, MATM Lite, BT Printer, Payment Solutions, Gulak Fin Shop" />
+    <meta name="author" content="Gulak Fin Shop" />
+    <meta property="og:title" content="Gulak Fin Shop - Premium Payment Solutions" />
+    <meta property="og:description" content="Discover our premium collection of MATM devices and BT printers at Gulak Fin Shop." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gulakfin.in" />
+    <title>Gulak Fin Shop - Premium Payment Solutions</title>
+	<link rel="stylesheet" href="/assets/index-22dc0fd3.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script type="module">
+const observer = new MutationObserver((mutations) => {
+	for (const mutation of mutations) {
+		for (const addedNode of mutation.addedNodes) {
+			if (
+				addedNode.nodeType === Node.ELEMENT_NODE &&
+				(
+					addedNode.tagName?.toLowerCase() === 'vite-error-overlay' ||
+					addedNode.classList?.contains('backdrop')
+				)
+			) {
+				handleViteOverlay(addedNode);
+			}
+		}
+	}
+});
+
+observer.observe(document.documentElement, {
+	childList: true,
+	subtree: true
+});
+
+function handleViteOverlay(node) {
+	if (!node.shadowRoot) {
+		return;
+	}
+
+	const backdrop = node.shadowRoot.querySelector('.backdrop');
+
+	if (backdrop) {
+		const overlayHtml = backdrop.outerHTML;
+		const parser = new DOMParser();
+		const doc = parser.parseFromString(overlayHtml, 'text/html');
+		const messageBodyElement = doc.querySelector('.message-body');
+		const fileElement = doc.querySelector('.file');
+		const messageText = messageBodyElement ? messageBodyElement.textContent.trim() : '';
+		const fileText = fileElement ? fileElement.textContent.trim() : '';
+		const error = messageText + (fileText ? ' File:' + fileText : '');
+
+		window.parent.postMessage({
+			type: 'horizons-vite-error',
+			error,
+		}, '*');
+	}
+}
+</script>
+    <script type="module">
+window.onerror = (message, source, lineno, colno, errorObj) => {
+	window.parent.postMessage({
+		type: 'horizons-runtime-error',
+		message,
+		source,
+		lineno,
+		colno,
+		error: errorObj && errorObj.stack
+	}, '*');
+};
+</script>
+    <script type="module">
+const originalFetch = window.fetch;
+
+window.fetch = async function(...args) {
+	return originalFetch.apply(this, args)
+		.then(async response => {
+			if(!response.ok) {
+				const errorFromRes = await response.text();
+				console.error(errorFromRes);
+			}
+
+			return response;
+		})
+		.catch(error => {
+			console.error(error);
+
+		throw error;
+	});
+};
+</script>
+    <script type="module">
+const originalConsoleError = console.error;
+console.error = function(...args) {
+	originalConsoleError.apply(console, args);
+
+	const errorString = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ').toLowerCase();
+
+	window.parent.postMessage({
+		type: 'horizons-console-error',
+		error: errorString
+	}, '*');
+};
+</script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
