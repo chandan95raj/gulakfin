@@ -59,8 +59,8 @@ const Privacy = () => {
           </p>
           <ul className="list-none mb-4">
             <li>Email: info@gulakfin.in</li>
-            <li>Phone: +91 XXXXXXXXXX</li>
-            <li>Address: Your Address Here</li>
+            <li>Phone: +91 9460978726</li>
+            <li>Address: CW-59 FIRST FLOOR, SGT NAGAR, NEW DELHI, 110042</li>
           </ul>
         </section>
       </div>

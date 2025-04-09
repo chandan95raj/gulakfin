@@ -17,7 +17,7 @@ const Cart = ({ isOpen, onClose }) => {
       currency: "INR",
       name: "Gulak Fin Shop",
       description: "Purchase from Gulak Fin Shop",
-      image: "/logo.png",
+      image: "/gulak-fin-logo.png",
       handler: function(response) {
         // Store order details in localStorage for tracking
         const orderId = response.razorpay_payment_id;
@@ -100,7 +100,7 @@ const Cart = ({ isOpen, onClose }) => {
                     className="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg"
                   >
                     <img
-                      src={item.image || "https://via.placeholder.com/100"}
+                      src={item.src || "https://via.placeholder.com/100"}
                       alt={item.name}
                       className="w-20 h-20 object-cover rounded"
                     />

@@ -15,42 +15,49 @@ const Products = () => {
       name: "MATM Feather Touch",
       price: "₹4,999.00",
       description: "Advanced MATM device with feather touch technology for seamless transactions.",
+      src:"https://www.purnpay.com/images/products/UCube.jpg"
     },
     {
       id: 2,
       name: "MATM Pro",
       price: "₹2,999.00",
       description: "Professional-grade MATM device for businesses.",
+      src:"https://www.purnpay.com/images/products/MosambeeQPOS.jpg"
     },
     {
       id: 3,
       name: "MATM Lite",
       price: "₹1,999.00",
       description: "Compact and efficient MATM solution for small businesses.",
+      src:"https://www.purnpay.com/images/products/Morefunlite.jpg"
     },
     {
       id: 4,
       name: "BT Printer",
       price: "₹1,999.00",
       description: "Reliable Bluetooth printer for instant receipts.",
+      src:"https://www.purnpay.com/images/products/BTPrinter.jpg"
     },
     {
       id: 5,
       name: "BT 2 in 1 Printer",
       price: "₹4,499.00",
       description: "Versatile 2-in-1 Bluetooth printer solution.",
+      src:"https://www.purnpay.com/images/products/BTAEPSPrinter.jpg"
     },
     {
       id: 6,
       name: "MATM All in One",
       price: "₹12,499.00",
       description: "Complete MATM solution with integrated features.",
+      src:"https://www.purnpay.com/images/products/MF919.jpg"
     },
     {
       id: 7,
       name: "MATM All in One Pro",
       price: "₹15,499.00",
       description: "Premium all-in-one MATM solution with advanced features.",
+      src:"https://www.purnpay.com/images/products/MF220.jpg"
     },
   ];
 
@@ -79,7 +86,7 @@ const Products = () => {
               <img  
                 className="w-full h-64 object-cover"
                 alt={`${product.name} - Gulak Fin Shop Product`}
-                src="https://images.unsplash.com/photo-1701330415878-163aacb005ff" />
+                src={`${product.src}`} />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold mb-2">{product.name}</h3>

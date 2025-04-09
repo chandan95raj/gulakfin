@@ -48,7 +48,7 @@ const Contact = () => {
           <div className="space-y-4">
             <p>
               <strong>Address:</strong><br />
-              Your Address Here
+              CW-59 FIRST FLOOR, SGT NAGAR, NEW DELHI, 110042
             </p>
             <p>
               <strong>Email:</strong><br />
@@ -56,7 +56,7 @@ const Contact = () => {
             </p>
             <p>
               <strong>Phone:</strong><br />
-              +91 XXXXXXXXXX
+              +91 9460978726
             </p>
           </div>
         </div>
