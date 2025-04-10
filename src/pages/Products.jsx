@@ -3,11 +3,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "../components/ui/button";
 import useCartStore from "../store/cartStore";
-import { useToast } from "../components/ui/use-toast";
-
+import { toast } from "react-toastify";
 const Products = () => {
   const addItem = useCartStore((state) => state.addItem);
-  const { toast } = useToast();
   
   const products = [
     {
@@ -63,10 +61,7 @@ const Products = () => {
 
   const handleAddToCart = (product) => {
     addItem(product);
-    toast({
-      title: "Added to Cart",
-      description: `${product.name} has been added to your cart.`,
-    });
+    toast.success(`${product.name} has been added to your cart.`);
   };
 
   return (

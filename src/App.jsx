@@ -11,9 +11,11 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Refund from "./pages/Refund";
 import OrderTracking from "./pages/OrderTracking";
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 const App = () => {
   return (
+    <>
     <Router>
       <div className="min-h-screen flex flex-col">
         <Navbar />
@@ -32,6 +34,8 @@ const App = () => {
         <Toaster />
       </div>
     </Router>
+    <ToastContainer />
+    </>
   );
 };
 
